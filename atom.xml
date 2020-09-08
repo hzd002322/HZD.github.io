@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://HZD.github.io</id>
+    <title>Gridea</title>
+    <updated>2020-09-08T11:39:02.502Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://HZD.github.io"/>
+    <link rel="self" href="https://HZD.github.io/atom.xml"/>
+    <subtitle>老傲娇了</subtitle>
+    <logo>https://HZD.github.io/images/avatar.png</logo>
+    <icon>https://HZD.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Spring Boot最核心的注解]]></title>
+        <id>https://HZD.github.io/post/spring-boot-zui-he-xin-de-zhu-jie/</id>
+        <link href="https://HZD.github.io/post/spring-boot-zui-he-xin-de-zhu-jie/">
+        </link>
+        <updated>2020-09-07T11:51:58.000Z</updated>
+        <content type="html"><![CDATA[<p>Spring Boot方式的项目开发已经逐步成为Java应用开发领域的主流框架，它不仅可以方便地创建生产级的Spring应用程序，还能轻松地通过一些注解配置与目前比较火热的微服务框架SpringCloud集成。</p>
+<p><strong>Spring Boot最核心的20个注解</strong></p>
+<p>1、@SpringBootApplication<br>
+这个注解是Spring Boot最核心的注解，用在 Spring Boot的主类上，标识这是一个 Spring Boot 应用，用来开启 Spring Boot 的各项能力。实际上这个注解是@Configuration,@EnableAutoConfiguration,@ComponentScan三个注解的组合。由于这些注解一般都是一起使用，所以Spring Boot提供了一个统一的注解@SpringBootApplication。</p>
+<p>2、@EnableAutoConfiguration<br>
+允许 Spring Boot 自动配置注解，开启这个注解之后，Spring Boot 就能根据当前类路径下的包或者类来配置 Spring Bean。<br>
+如：当前类路径下有 Mybatis 这个 JAR 包，MybatisAutoConfiguration 注解就能根据相关参数来配置 Mybatis 的各个 Spring Bean。</p>
+<p>3、@SpringBootConfiguration<br>
+这个注解就是 @Configuration 注解的变体，只是用来修饰是 Spring Boot 配置而已，或者可利于 Spring Boot 后续的扩展。</p>
+<p>4、@ConditionalOnBean<br>
+@ConditionalOnBean(A.class)仅仅在当前上下文中存在A对象时，才会实例化一个Bean，也就是说只有当A.class 在spring的applicationContext中存在时，这个当前的bean才能够创建。</p>
+<p>5、@ConditionalOnMissingBean<br>
+组合@Conditional注解，和@ConditionalOnBean注解相反，仅仅在当前上下文中不存在A对象时，才会实例化一个Bean。</p>
+<p>6、@ConditionalOnClass<br>
+组合 @Conditional 注解，可以仅当某些类存在于classpath上时候才创建某个Bean。</p>
+<p>7、@ConditionalOnMissingClass<br>
+组合@Conditional注解，和@ConditionalOnMissingClass注解相反，当classpath中没有指定的 Class才开启配置。</p>
+<p>8、@ConditionalOnWebApplication<br>
+组合@Conditional 注解，当前项目类型是 WEB 项目才开启配置。当前项目有以下 3 种类型:ANY(任何Web项目都匹配)、SERVLET（仅但基础的Servelet项目才会匹配）、REACTIVE（只有基于响应的web应用程序才匹配）。</p>
+<p>9、@ConditionalOnNotWebApplication<br>
+组合@Conditional注解，和@ConditionalOnWebApplication 注解相反，当前项目类型不是 WEB 项目才开启配置。</p>
+<p>10、@ConditionalOnProperty<br>
+组合 @Conditional 注解，当指定的属性有指定的值时才开启配置。具体操作是通过其两个属性name以及havingValue来实现的，其中name用来从application.properties中读取某个属性值，如果该值为空，则返回false;如果值不为空，则将该值与havingValue指定的值进行比较，如果一样则返回true;否则返回false。如果返回值为false，则该configuration不生效；为true则生效。</p>
+<p>11、@ConditionalOnExpression<br>
+组合 @Conditional 注解，当 SpEL 表达式为 true 时才开启配置。</p>
+<p>12、@ConditionalOnJava<br>
+组合@Conditional 注解，当运行的 Java JVM 在指定的版本范围时才开启配置。</p>
+<p>13、@ConditionalOnResource<br>
+组合 @Conditional 注解，当类路径下有指定的资源才开启配置。</p>
+<p>14、@ConditionalOnJndi<br>
+组合 @Conditional 注解，当指定的 JNDI 存在时才开启配置。</p>
+<p>15、@ConditionalOnCloudPlatform<br>
+组合 @Conditional 注解，当指定的云平台激活时才开启配置。</p>
+<p>16、@ConditionalOnSingleCandidate<br>
+组合 @Conditional 注解，当指定的 class 在容器中只有一个 Bean，或者同时有多个但为首选时才开启配置。</p>
+<p>17、@ConfigurationProperties<br>
+Spring Boot可使用注解的方式将自定义的properties文件映射到实体bean中，比如config.properties文件。</p>
+<p>18、@EnableConfigurationProperties<br>
+当@EnableConfigurationProperties注解应用到你的@Configuration时，任何被@ConfigurationProperties注解的beans将自动被Environment属性配置。 这种风格的配置特别适合与SpringApplication的外部YAML配置进行配合使用。</p>
+<p>19、@AutoConfigureAfter<br>
+用在自动配置类上面，表示该自动配置类需要在另外指定的自动配置类配置完之后。<br>
+如 Mybatis 的自动配置类，需要在数据源自动配置类之后。</p>
+<p>20、@AutoConfigureBefore<br>
+这个和@AutoConfigureAfter注解使用相反，表示该自动配置类需要在另外指定的自动配置类配置之前。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://HZD.github.io/post/hello-gridea/</id>
+        <link href="https://HZD.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>

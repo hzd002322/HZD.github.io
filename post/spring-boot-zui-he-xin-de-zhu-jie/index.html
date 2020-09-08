@@ -1,0 +1,211 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spring Boot最核心的注解 | Gridea</title>
+<link rel="shortcut icon" href="https://HZD.github.io/favicon.ico?v=1599565140394">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://HZD.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Spring Boot最核心的注解 | Gridea - Atom Feed" href="https://HZD.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Spring Boot方式的项目开发已经逐步成为Java应用开发领域的主流框架，它不仅可以方便地创建生产级的Spring应用程序，还能轻松地通过一些注解配置与目前比较火热的微服务框架SpringCloud集成。
+Spring Boot最核心..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://HZD.github.io">
+  <img class="avatar" src="https://HZD.github.io/images/avatar.png?v=1599565140394" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    老傲娇了
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Spring Boot最核心的注解
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-09-07
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://HZD.github.io/post-images/spring-boot-zui-he-xin-de-zhu-jie.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>Spring Boot方式的项目开发已经逐步成为Java应用开发领域的主流框架，它不仅可以方便地创建生产级的Spring应用程序，还能轻松地通过一些注解配置与目前比较火热的微服务框架SpringCloud集成。</p>
+<p><strong>Spring Boot最核心的20个注解</strong></p>
+<p>1、@SpringBootApplication<br>
+这个注解是Spring Boot最核心的注解，用在 Spring Boot的主类上，标识这是一个 Spring Boot 应用，用来开启 Spring Boot 的各项能力。实际上这个注解是@Configuration,@EnableAutoConfiguration,@ComponentScan三个注解的组合。由于这些注解一般都是一起使用，所以Spring Boot提供了一个统一的注解@SpringBootApplication。</p>
+<p>2、@EnableAutoConfiguration<br>
+允许 Spring Boot 自动配置注解，开启这个注解之后，Spring Boot 就能根据当前类路径下的包或者类来配置 Spring Bean。<br>
+如：当前类路径下有 Mybatis 这个 JAR 包，MybatisAutoConfiguration 注解就能根据相关参数来配置 Mybatis 的各个 Spring Bean。</p>
+<p>3、@SpringBootConfiguration<br>
+这个注解就是 @Configuration 注解的变体，只是用来修饰是 Spring Boot 配置而已，或者可利于 Spring Boot 后续的扩展。</p>
+<p>4、@ConditionalOnBean<br>
+@ConditionalOnBean(A.class)仅仅在当前上下文中存在A对象时，才会实例化一个Bean，也就是说只有当A.class 在spring的applicationContext中存在时，这个当前的bean才能够创建。</p>
+<p>5、@ConditionalOnMissingBean<br>
+组合@Conditional注解，和@ConditionalOnBean注解相反，仅仅在当前上下文中不存在A对象时，才会实例化一个Bean。</p>
+<p>6、@ConditionalOnClass<br>
+组合 @Conditional 注解，可以仅当某些类存在于classpath上时候才创建某个Bean。</p>
+<p>7、@ConditionalOnMissingClass<br>
+组合@Conditional注解，和@ConditionalOnMissingClass注解相反，当classpath中没有指定的 Class才开启配置。</p>
+<p>8、@ConditionalOnWebApplication<br>
+组合@Conditional 注解，当前项目类型是 WEB 项目才开启配置。当前项目有以下 3 种类型:ANY(任何Web项目都匹配)、SERVLET（仅但基础的Servelet项目才会匹配）、REACTIVE（只有基于响应的web应用程序才匹配）。</p>
+<p>9、@ConditionalOnNotWebApplication<br>
+组合@Conditional注解，和@ConditionalOnWebApplication 注解相反，当前项目类型不是 WEB 项目才开启配置。</p>
+<p>10、@ConditionalOnProperty<br>
+组合 @Conditional 注解，当指定的属性有指定的值时才开启配置。具体操作是通过其两个属性name以及havingValue来实现的，其中name用来从application.properties中读取某个属性值，如果该值为空，则返回false;如果值不为空，则将该值与havingValue指定的值进行比较，如果一样则返回true;否则返回false。如果返回值为false，则该configuration不生效；为true则生效。</p>
+<p>11、@ConditionalOnExpression<br>
+组合 @Conditional 注解，当 SpEL 表达式为 true 时才开启配置。</p>
+<p>12、@ConditionalOnJava<br>
+组合@Conditional 注解，当运行的 Java JVM 在指定的版本范围时才开启配置。</p>
+<p>13、@ConditionalOnResource<br>
+组合 @Conditional 注解，当类路径下有指定的资源才开启配置。</p>
+<p>14、@ConditionalOnJndi<br>
+组合 @Conditional 注解，当指定的 JNDI 存在时才开启配置。</p>
+<p>15、@ConditionalOnCloudPlatform<br>
+组合 @Conditional 注解，当指定的云平台激活时才开启配置。</p>
+<p>16、@ConditionalOnSingleCandidate<br>
+组合 @Conditional 注解，当指定的 class 在容器中只有一个 Bean，或者同时有多个但为首选时才开启配置。</p>
+<p>17、@ConfigurationProperties<br>
+Spring Boot可使用注解的方式将自定义的properties文件映射到实体bean中，比如config.properties文件。</p>
+<p>18、@EnableConfigurationProperties<br>
+当@EnableConfigurationProperties注解应用到你的@Configuration时，任何被@ConfigurationProperties注解的beans将自动被Environment属性配置。 这种风格的配置特别适合与SpringApplication的外部YAML配置进行配合使用。</p>
+<p>19、@AutoConfigureAfter<br>
+用在自动配置类上面，表示该自动配置类需要在另外指定的自动配置类配置完之后。<br>
+如 Mybatis 的自动配置类，需要在数据源自动配置类之后。</p>
+<p>20、@AutoConfigureBefore<br>
+这个和@AutoConfigureAfter注解使用相反，表示该自动配置类需要在另外指定的自动配置类配置之前。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://HZD.github.io/post/hello-gridea/">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://HZD.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
