@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://HZD.github.io</id>
+    <id>https://hzd.github.io</id>
     <title>Gridea</title>
-    <updated>2020-09-08T11:39:02.502Z</updated>
+    <updated>2020-09-08T11:40:33.365Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://HZD.github.io"/>
-    <link rel="self" href="https://HZD.github.io/atom.xml"/>
+    <link rel="alternate" href="https://hzd.github.io"/>
+    <link rel="self" href="https://hzd.github.io/atom.xml"/>
     <subtitle>老傲娇了</subtitle>
-    <logo>https://HZD.github.io/images/avatar.png</logo>
-    <icon>https://HZD.github.io/favicon.ico</icon>
+    <logo>https://hzd.github.io/images/avatar.png</logo>
+    <icon>https://hzd.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[Spring Boot最核心的注解]]></title>
-        <id>https://HZD.github.io/post/spring-boot-zui-he-xin-de-zhu-jie/</id>
-        <link href="https://HZD.github.io/post/spring-boot-zui-he-xin-de-zhu-jie/">
+        <id>https://hzd.github.io/post/spring-boot-zui-he-xin-de-zhu-jie/</id>
+        <link href="https://hzd.github.io/post/spring-boot-zui-he-xin-de-zhu-jie/">
         </link>
         <updated>2020-09-07T11:51:58.000Z</updated>
         <content type="html"><![CDATA[<p>Spring Boot方式的项目开发已经逐步成为Java应用开发领域的主流框架，它不仅可以方便地创建生产级的Spring应用程序，还能轻松地通过一些注解配置与目前比较火热的微服务框架SpringCloud集成。</p>
@@ -64,8 +64,8 @@ Spring Boot可使用注解的方式将自定义的properties文件映射到实�
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://HZD.github.io/post/hello-gridea/</id>
-        <link href="https://HZD.github.io/post/hello-gridea/">
+        <id>https://hzd.github.io/post/hello-gridea/</id>
+        <link href="https://hzd.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
